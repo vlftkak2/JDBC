@@ -265,33 +265,19 @@ public class BookDAO {
 			stmt = conn.createStatement();
 
 			// 4. SQL문 실행
-			String sql = "select a.NO"
-					+ ",a.title"
-					+ ",a.rate"
-					+ ",a.status"
-					+ ",a.author_no"
-					+ ",b.NAME from book a, author b "
-					+ "where a.AUTHOR_NO=b.NO";
+			String sql = "select title,price from book";
 			rs = stmt.executeQuery(sql);
 			
 			
 
 			// 5. 결과 처리
 			while (rs.next()) {
-				Long no = rs.getLong(1);
-				String title = rs.getString(2);
-				Integer rate = rs.getInt(3);
-				Integer status=rs.getInt(4);
-				Long authorNo = rs.getLong(5);
-				String authorName=rs.getString(6);
+				String title = rs.getString(1);
+				Integer price = rs.getInt(2);
 
 				BookVo vo = new BookVo();
-				vo.setNo(no);
 				vo.setTitle(title);
-				vo.setRate(rate);
-				vo.setStatus(status);
-				vo.setAuthorNo(authorNo);
-				vo.setAuthorName(authorName);
+				vo.setPrice(price);
 
 				list.add(vo);
 			}

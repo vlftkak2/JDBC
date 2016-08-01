@@ -10,10 +10,17 @@ public class BookVo {
 
 	private Long no;
 	private String title;
+	public Integer getPrice() {
+		return price;
+	}
+	public void setPrice(Integer price) {
+		this.price = price;
+	}
 	private Integer rate;
 	private Integer status;
 	private Long authorNo;
 	private String authorName;
+	private Integer price;
 	
 	public String getAuthorName() {
 		return authorName;
@@ -54,14 +61,12 @@ public class BookVo {
 	public void setAuthorNo(Long authorNo) {
 		this.authorNo = authorNo;
 	}
-	
 	@Override
 	public String toString() {
-		String str = status == 0 ? "재고있음" : "대여중";
-		return "넘버 : " + no + " 책 제목 : " + title + " 평가 : " + rate + " 대여 유무 : " + str + " 저자 번호 : "
-				+ authorNo + " 저자 이름 : " + authorName;
+		return "책 제목 : "+title+", 가격 : "+price+"원";
 	}
-
+	
+	
 	
 	
 
